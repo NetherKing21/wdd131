@@ -1,14 +1,42 @@
 #content {
-    width: 75%;
+    width: 70%;
+    padding: 10%;
     margin: 0 auto;
     text-align: center;
+    border: 2px solid lightgrey;
+}
+
+#title {
+    font-size: 2.5em;
+    letter-spacing: 0.1em;
 }
 
 #byui {
-    color: blue;
+    color: #006EB6;
+    letter-spacing: 0.2em;
+    margin-bottom: 2px;
+}
+
+hr {
+    color: lightgray;
+    margin: 0 0 30px;
+}
+
+#message {
+    text-align: left;
+    line-height: 1.5;
+    
 }
 
 .italics {
     font-style: italic;
 }
 
+li {
+    margin: 15px 0;
+}
+
+img {
+    margin-top: 50px;
+    width: 20%;
+}
