@@ -40,3 +40,8 @@ img {
     margin-top: 50px;
     width: 20%;
 }
+
+.dark {
+    background-color: rgb(48, 47, 47);
+    color: white;
+}
