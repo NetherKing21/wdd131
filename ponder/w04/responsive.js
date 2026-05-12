@@ -7,5 +7,6 @@ function handleMenuBtnClick (event) {
     const nav = document.querySelector("nav");
     //toggle .hide on nav
     nav.classList.toggle("hide");
-    //profit
+    //toggle animation
+    menuButton.classList.toggle("change");
 }

@@ -48,9 +48,13 @@ footer {
     text-align: center;
 }
 
-
+/* ANIMATION */
+.menu-btn div {
+    transition: transform 0.5s ease-in-out,
+                opacity 0.5s ease-in-out;
+}
 .change .bar1 {
-  transform: translate(0, 11px) rotate(-45deg);
+  transform: translate(0, 7px) rotate(-45deg);
 }
 .change .bar2 {opacity: 0;}
 
