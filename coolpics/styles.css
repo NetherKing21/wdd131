@@ -11,6 +11,11 @@ h1, h2, a {
 header {
     background-color: royalblue;
     text-align: center;
+    padding: 10px;
+}
+
+body {
+    background-color: lightgrey;
 }
 
 h1 {
@@ -22,14 +27,19 @@ nav {
     display: none;
 }
 
+li {
+    padding: 5px;
+}
+
+
 a {
-    text-decoration: none;
     color: white;
-    padding: 50px;
+    font-size: 1.2em;
 }
 
 #menu {
     display: inline-block;
+    font-size: 1.5em;
     padding: 10px;
     background: none;
     color: white;
@@ -37,27 +47,44 @@ a {
 }
 
 #content {
-    background-color: lightgray;
-    text-align: center;
+    margin: 0 auto;
+
 }
 
 h2 {
     padding: 10px;
+    text-align: center;
 }
 
-img {
+figure img {
     object-fit: cover;
-    margin: 0 auto;
+    display: block;
+    margin: 30px auto;
     border: 5px solid white;
     box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.6);
     height: 262px;
     width: 262px;
 }
 
-#imgGrid {
-    margin: 0 auto;
-    display: grid;
-    row-gap: 30px;
+
+/* Modal */
+dialog img {
+    width: 90%;
+    display: block;
+    margin: 20vh auto;
+}
+dialog {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.75);
+    padding: 1em;
+}
+.close-viewer {
+    position: absolute;
+    top: 10vh;
+    right: 2vh;
+    padding: 3px 6px;
+    font-size: 1.5em;
 }
 
 footer {
@@ -66,13 +93,19 @@ footer {
 }
 
 @media screen and (min-width: 724px) {
-    #imgGrid {
+    #content {
+        display: grid;
+        /* row-gap: 30px; */
         grid-template-columns: repeat(2, auto);
+    }
+
+    li {
+        display: inline-block;
     }
 }
 
 @media screen and (min-width: 986px) {
-    #imgGrid {
+    #content {
         grid-template-columns: repeat(3, auto);
         width: 973px;
     }
@@ -84,5 +117,21 @@ footer {
 
     #menu {
         display: none;
+    }
+
+    dialog img {
+        width: 60%;
+        margin: 15vh auto;
+    }
+    .close-viewer {
+        position: absolute;
+        right: 15vh;
+    }
+    .viewer {
+        margin: 50px;
+        padding: 50px;
+    }
+    .viewer img {
+        max-width: 800px;
     }
 }
