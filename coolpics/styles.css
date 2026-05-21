@@ -27,7 +27,7 @@ nav {
     display: none;
 }
 
-li {
+nav li {
     padding: 5px;
 }
 
@@ -111,7 +111,7 @@ footer {
     }
 
     nav {
-        display: inline-block;
+        display: block;
         padding: 10px 0;
     }
 
