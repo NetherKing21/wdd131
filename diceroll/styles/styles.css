@@ -1,0 +1,97 @@
+/*============================================================
+      Dice Roll - styles.css
+  ============================================================ */
+
+@import url("https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC|Lato");
+
+/* ──Variables ─────────────────────────────────────────────────── */
+:root {
+  /* Link to palette: https://coolors.co/5386e4-4c4b63-949396-aba8b2-c3c3c3 */
+  --primary-color: #5386E4;
+  --secondary-color: #C3C3C3;
+  --accent1-color: #4C4B63;
+  --accent2-color: #949396;
+
+  /* Fonts */
+  --heading-font: "IM Fell French Canon SC";
+  --paragraph-font: Lato, Helvetica, sans-serif;
+
+  /* these colors below should be chosen from among your palette colors above */
+  --headline-color-on-white: var(
+    --primary-color
+  ); /* headlines on a white background */
+  --headline-color-on-color: white; /* headlines on a colored background */
+  --paragraph-color-on-white: var(
+    --primary-color
+  ); /* paragraph text on a white background */
+  --paragraph-color-on-color: white; /* paragraph text on a colored background */
+  --paragraph-background-color: var(--primary-color);
+  --nav-link-color: var(--primary-color);
+  --nav-background-color: var(--secondary-color);
+  --nav-hover-link-color: white;
+  --nav-hover-background-color: var(--primary-color);
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: var(--paragraph-font); color: var(--accent1-color);
+  background: var(--secondary-color); -webkit-font-smoothing: antialiased; }
+ul { list-style: none; }
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+input, select { font-family: inherit; }
+a { text-decoration: none; }
+[hidden] { display: none !important; }
+
+
+/*============================================================
+      PHONE VIEW
+  ============================================================ */
+
+  header {
+    display: flex;
+    background-color: var(--primary-color);
+    justify-content: center;
+  }
+
+  main {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  #instructionCard {
+    margin: 7px auto;
+    border: 3px solid var(--accent1-color);
+  }
+
+  .diceCard {
+    margin: 7px auto;
+    border: 2px solid var(--accent1-color);
+  }
+
+  .diceInputSection {
+    display: flex;
+  }
+  
+  input {
+    width: 4em;
+  }
+
+  .regBtn {
+    border: 1px solid;
+  }
+
+  .closeBtn {
+    float: right;
+  }
+
+  .rollSetBtn {
+    float: right;
+  }
+
+
+/*============================================================
+      DESKTOP VIEW
+  ============================================================ */
+@media screen and (min-width: 750px) {
+  
+}

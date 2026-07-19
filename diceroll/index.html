@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WDD131 Final Project">
+    <meta name="author" content="Brayden McAllister">
+    <title>Dice Roll</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="main.js" defer></script>
+    <!-- TODO: Add favicon -->
+</head>
+<body>
+
+    <header>
+        <!-- TODO: Icon/Logo; banner/title -->
+        <!-- no nav because single page application -->
+        <img src="dicerollicon.png" alt="Dice Logo">
+        <h1>Dice Roll</h1>  
+    </header>
+
+    <main>
+        <!-- TODO: Instruction card -->
+         <button id="instructionOpenBtn" class="regBtn" hidden>Show Instructions</button>
+         <section id="instructionCard">
+            <button id="instructionCloseBtn" class="closeBtn">X</button>
+            <h2>Instructions</h2>
+            <p>Put instructions here</p>
+         </section>
+
+        <!-- TODO: Dice card -->
+         <!-- diceBag is the main container for dice sets -->
+         <!-- A diceSet is a single die size and amount and each will have their own card -->
+         <section id="diceBagContainer">
+            <!-- Dice cards get dynamically generated here -->
+         </section>
+
+        <!-- TODO: add dice set button -->
+         <button id="diceSetAddBtn" class="regBtn">Add dice set</button>
+         <button id="rollAllDiceSetsBtn" class="regBtn">Roll all sets</button>
+         <button id="clearAllDiceSetsBtn" class="regBtn">Clear all dice sets</button>
+    </main>
+
+    <footer>
+        <!-- TODO: copyright, other? -->
+    </footer> 
+
+</body>
+</html>
