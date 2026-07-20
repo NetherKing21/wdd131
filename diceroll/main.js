@@ -21,7 +21,7 @@ function toggleInstructions() {
 function DiceSet(diceAmount = 0, diceSize = 0) {
     this.amount  = diceAmount;
     this.size    = diceSize;
-    this.rolls   = [];
+    this.rolls   = Array(diceAmount).fill(0);
     this.total   = 0;
 
     this.roll = function() {
@@ -67,7 +67,7 @@ const diceBag = {
     }
 
 
-// preset for testing
+// presets as examples
 diceBag.createDiceSet(10,4);
 diceBag.createDiceSet(10,6);
 diceBag.createDiceSet(10,8);
@@ -75,47 +75,81 @@ diceBag.createDiceSet(10,10);
 diceBag.createDiceSet(10,12);
 diceBag.createDiceSet(10,20);
 
-let testSet = diceBag.diceSets[2];
-
-
 // Display Output -------------------------------------
  // DOM Elements
  const diceBagContainer = document.getElementById("diceBagContainer");
+ const addDiceSetBtn    = document.getElementById("diceSetAddBtn");
+ const rollAllSetsBtn   = document.getElementById("rollAllDiceSetsBtn");
+ const clearAllSetsBtn  = document.getElementById("clearAllDiceSetsBtn");
+
+
+// Functions
+function createDiceCard(diceSet) {
+    if (!diceSet) {
+        diceSet = new DiceSet();
+        diceBag.addDiceSet(diceSet);
+    }
+
+    // Create this element to be able to find other elements later
+    const diceCard = document.createElement("div");
+    diceCard.classList.add("diceCard");
+
+    diceCard.innerHTML = `
+        <button class="diceCardDeleteBtn closeBtn">X</button>
+        <div class="diceInputSection">
+            <input type="number" class="diceAmountInput" value="${diceSet.amount}">
+            <p>D</p>
+            <input type="number" class="diceSizeInput" value="${diceSet.size}">
+        </div>
+        <button class="rollSetBtn regBtn">Roll</button>
+        <p class="rollDisplay">${diceSet.rolls.join("+")}= <span class="total">${diceSet.total}</span></p>
+    `;
+
+    // Get btns
+    const rollSetBtn      = diceCard.getElementsByClassName("rollSetBtn")[0];
+    const closeBtn        = diceCard.getElementsByClassName("diceCardDeleteBtn")[0];
+
+    // Add event listeners
+    rollSetBtn.addEventListener("click", () => {showRoll(diceCard, diceSet)});
+    closeBtn.addEventListener("click", () => {removeDiceCard(diceCard, diceSet)});
+
+    // Add it to the page
+    diceBagContainer.appendChild(diceCard);
+}
 
 function displayDiceSets() {
-    diceBag.diceSets.forEach((set) => {
-        // Create this element to be able to find other elements later
-        const diceCard = document.createElement("div");
-        diceCard.classList.add("diceCard");
-
-        diceCard.innerHTML = `
-            <button class="diceCardDeleteBtn closeBtn">X</button>
-            <div class="diceInputSection">
-                <input type="number" class="diceAmountInput" value="${set.amount}">
-                <p>D</p>
-                <input type="number" class="diceSizeInput" value="${set.size}">
-            </div>
-            <button class="rollSetBtn regBtn">Roll</button>
-            <p class="rollDisplay">4 + 5 + 6 = <span class="total">15</span> [Change Later]</p>
-        `;
-
-        // Get card elements
-        const diceAmountInput = diceCard.getElementsByClassName("diceAmountInput")[0];
-        const diceSizeInput   = diceCard.getElementsByClassName("diceSizeInput")[0];
-        
-        // TODO: Add event listeners
-
-
-        // Add it to the page
-        diceBagContainer.appendChild(diceCard);
-
+    diceBag.diceSets.forEach(set => {
+        createDiceCard(set);
     });
 }
 
+// Dicebag btn listeners
+addDiceSetBtn.addEventListener("click", () => {createDiceCard()});
+clearAllSetsBtn.addEventListener("click", () => {
+    diceBagContainer.replaceChildren();
+});
+rollAllSetsBtn.addEventListener("click", () => {
+    const allRollBtns = Array.from(document.getElementsByClassName("rollSetBtn"));
+    allRollBtns.forEach(btn => btn.click());
+});
+
 
 // Helper functions
-function test() {
+function showRoll(diceCard, diceSet) {
+    // Update diceSet object
+    diceSet.amount = diceCard.getElementsByClassName("diceAmountInput")[0].value;
+    diceSet.size   = diceCard.getElementsByClassName("diceSizeInput")[0].value;
 
+    // ROLL!
+    diceSet.roll();
+
+    //Update rollDisplay
+    diceCard.getElementsByClassName("rollDisplay")[0].innerHTML = `${diceSet.rolls.join("+")}= <span class="total">${diceSet.total}</span>`;
+}
+
+function removeDiceCard(diceCard, diceSet) {
+    diceBag.removeDiceSet(diceSet);
+    diceCard.remove();
 }
 
 
