@@ -13,32 +13,31 @@
 <body>
 
     <header>
-        <!-- TODO: Icon/Logo; banner/title -->
         <!-- no nav because single page application -->
-        <img src="dicerollicon.png" alt="Dice Logo">
+        <img src="dicerollicon.png" alt="Dice Logo" id="logo">
         <h1>Dice Roll</h1>  
     </header>
 
     <main>
-        <!-- TODO: Instruction card -->
          <button id="instructionOpenBtn" class="regBtn" hidden>Show Instructions</button>
          <section id="instructionCard">
             <button id="instructionCloseBtn" class="closeBtn">X</button>
             <h2>Instructions</h2>
-            <p>Put instructions here</p>
+            <p>Welcome to Dice Roll!</p>
+            <p>Your one stop for RNG fun. Dice Roll follows common dice convention of stating the amount of dice followed by size of dice. Common examples have been preloaded for convenience.</p>
+            <p>Roll indivual sets of dice by clicking the Roll button on the card or roll all sets by clicking the Roll All button at the bottom.</p>
+            <p>Speed up your games with a click of a button and enjoy Dice Roll!</p>
          </section>
 
-        <!-- TODO: Dice card -->
          <!-- diceBag is the main container for dice sets -->
          <!-- A diceSet is a single die size and amount and each will have their own card -->
          <section id="diceBagContainer">
             <!-- Dice cards get dynamically generated here -->
          </section>
 
-        <!-- TODO: add dice set button -->
          <button id="diceSetAddBtn" class="regBtn">Add dice set</button>
-         <button id="rollAllDiceSetsBtn" class="regBtn">Roll all sets</button>
-         <button id="clearAllDiceSetsBtn" class="regBtn">Clear all dice sets</button>
+         <button id="rollAllDiceSetsBtn" class="regBtn">Roll All</button>
+         <button id="clearAllDiceSetsBtn" class="regBtn">Clear All</button>
     </main>
 
     <footer>

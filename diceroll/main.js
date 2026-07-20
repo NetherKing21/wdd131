@@ -68,12 +68,12 @@ const diceBag = {
 
 
 // presets as examples
-diceBag.createDiceSet(10,4);
-diceBag.createDiceSet(10,6);
-diceBag.createDiceSet(10,8);
-diceBag.createDiceSet(10,10);
-diceBag.createDiceSet(10,12);
-diceBag.createDiceSet(10,20);
+diceBag.createDiceSet(5,4);
+diceBag.createDiceSet(5,6);
+diceBag.createDiceSet(5,8);
+diceBag.createDiceSet(5,10);
+diceBag.createDiceSet(5,12);
+diceBag.createDiceSet(5,20);
 
 // Display Output -------------------------------------
  // DOM Elements
@@ -155,3 +155,4 @@ function removeDiceCard(diceCard, diceSet) {
 
 // Load Page
 displayDiceSets();
+rollAllSetsBtn.click();
